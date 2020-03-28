@@ -7,19 +7,19 @@
 #define M 20
 #define N 20
 
-//å…¨å±€å˜é‡åŒº
+//È«¾Ö±äÁ¿
 int Map1[M][N] = {0};
 int Map2[M][N] = {0};
 int thisFlag = 1;
 
-//å¯¹å‡½æ•°è¿›è¡Œå£°æ˜
-int ReadMap();//åˆå§‹åœ°å›¾è¯»å–å‡½æ•°
-void Print(int thisMap[M][N],int lastMap[M][N]);//æ‰“å°å½“å‰åœ°å›¾å‡½æ•°
-void InitPrintMap(int thisMap[M][N]);//åˆå§‹åŒ–æ‰“å°åœ°å›¾
-void Run();//ä¿æŒè¿è¡Œçš„å‡½æ•°
-void Calculate(int nowMap[M][N],int lastMap[M][N]);//æŠŠRenewMapä¼ è¿‡æ¥çš„åœ°å›¾æ ¹æ®è§„åˆ™è®¡ç®—æ–°çš„åœ°å›¾
-void RenewMap();//æ ¹æ®åœ°å›¾ç¼–å·ï¼Œè°ƒç”¨è®¡ç®—å‡½æ•°ï¼Œä¼ å…¥å½“å‰çš„åœ°å›¾ï¼Œå¹¶æ›´æ–°å½“å‰çš„åœ°å›¾ç¼–å·
-void Show(int x, int y);//è®¾ç½®å…‰æ ‡ä½ç½®ï¼Œå†³å®šè¦åœ¨ä»€ä¹ˆä½ç½®è¾“å‡º
+//º¯ÊıÉùÃ÷
+int ReadMap();
+void Print(int thisMap[M][N],int lastMap[M][N]);
+void InitPrintMap(int thisMap[M][N]);
+void Run();
+void Calculate(int nowMap[M][N],int lastMap[M][N]);
+void RenewMap();
+void Show(int x, int y);
 
 
 int main(void)
@@ -29,9 +29,47 @@ int main(void)
 	return 0;
 }
 
+int ReadMap()
+{
+	FILE *fp; //ÀûÓÃÖ¸Õë´ò¿ªÊÂÏÈ×¼±¸ºÃµÄÎÄ±¾ÎÄ¼ş
+	int i = 0,j = 0;
+	char ch = '\0';
+
+	//ÏÈÅĞ¶ÏµØÍ¼ÎÄ¼şÊÇ·ñ´æÔÚ£¬´æÔÚÔò¼ÌĞø£¬·ñÔòÖ±½Ó·µ»Ø-1
+	if(access("LifeGameMap.txt",0))
+	{
+		printf("µØÍ¼ÎÄ¼ş²»´æÔÚ\n");
+		return -1;
+	}
+
+	fp = fopen("LifeGameMap.txt","r");
+
+	for(i = 0;i < M;i++)
+	{
+		//¶ÁÍêÒ»ÕûĞĞ
+		for(j = 0;j < N;j++)
+		{
+			fscanf(fp,"%c",&ch);
+			if('*' != ch)
+			{
+				Map1[i][j] = 0;
+				Map2[i][j] = 0;
+			}
+			else
+			{//ÉèÖÃÎª1£¬·½±ãºóÆÚ¼ÆËãÖÜÎ§»îÏ¸°û¸öÊı£¨Ö±½ÓÀÛ¼Ó¾ÍĞĞ£©
+				Map1[i][j] = 1;
+				Map2[i][j] = 1;
+			}
+		}
+		//Ò»ĞĞ×îºóÓĞÒ»¸ö»»ĞĞ·û
+		fscanf(fp,"%c",&ch);
+	}
+	return 0;
+}
+
 void RenewMap()
 {
-	//éå†å½“å‰çš„åœ°å›¾æ•°ç»„,ä¾æ¬¡è®¡ç®—æ¯ä¸ªæ ¼å­çš„åä¸€ä¸ªçŠ¶æ€ï¼Œå¹¶æ›´æ–°æ–°çš„åœ°å›¾
+	//±éÀúµ±Ç°µÄµØÍ¼Êı×é,ÒÀ´Î¼ÆËãÃ¿¸ö¸ñ×ÓµÄºóÒ»¸ö×´Ì¬£¬²¢¸üĞÂĞÂµÄµØÍ¼
 	if(1 == thisFlag)
 	{
 		Calculate(Map1,Map2);
