@@ -5,6 +5,7 @@
 #include <time.h>
 #include <conio.h>
 
+//定义地图的大小
 #define M 20
 #define N 20
 
@@ -20,7 +21,7 @@ void InitPrintMap(int thisMap[M][N]);
 void Run();
 void Calculate(int nowMap[M][N],int lastMap[M][N]);
 void RenewMap();
-void Show(int x, int y);
+void Pos(int x, int y);
 
 //读取初始地图
 int ReadMap()
@@ -164,7 +165,8 @@ void Run()
 	{
 		switch(getch())
 		{
-			case 'y':RenewMap();break;
+			case 'y':RenewMap();
+			break;
 			case 27:return ;
 		}
 		//Sleep(500);
