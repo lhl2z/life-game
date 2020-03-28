@@ -22,14 +22,7 @@ void Calculate(int nowMap[M][N],int lastMap[M][N]);
 void RenewMap();
 void Show(int x, int y);
 
-
-int main(void)
-{
-	Run();
-	system("pause");
-	return 0;
-}
-
+//读取初始地图
 int ReadMap()
 {
 	FILE *fp; //利用指针打开事先准备好的文本文件
@@ -197,4 +190,27 @@ int main(void)
 	Run();
 	system("pause");
 	return 0;
+}
+
+//打印当前地图
+void Print(int thisMap[M][N],int lastMap[M][N])
+{
+	int i = 0,j = 0;
+	for(i = 0;i < M;i++)
+	{
+		for(j = 0;j < N;j++)
+		{
+			//不相等，所以需要改变输出
+			if(thisMap[i][j] != lastMap[i][j])
+			{
+				Pos(2*j,i);
+				//Sleep(500);
+				if(0 == lastMap[i][j])
+					printf("□");
+				else
+					printf("■");
+			}
+		}
+	}
+	Pos(N,M);
 }
