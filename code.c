@@ -4,11 +4,12 @@
 #include <Windows.h>
 #include <time.h>
 #include <conio.h>
+
 #define M 20
 #define N 20
 
 //全局变量
-int Map1[M][N] = {0};
+int Map1[M][N] = {0}; 
 int Map2[M][N] = {0};
 int thisFlag = 1;
 
@@ -52,8 +53,8 @@ int ReadMap()
 			fscanf(fp,"%c",&ch);
 			if('*' != ch)
 			{
-				Map1[i][j] = 0;
-				Map2[i][j] = 0;
+				Map1[i][j] = 0;//nowmap[][]
+				Map2[i][j] = 0;//lastmap[][]
 			}
 			else
 			{//设置为1，方便后期计算周围活细胞个数（直接累加就行）
@@ -67,7 +68,25 @@ int ReadMap()
 	return 0;
 }
 
-//根据规则计算新地图
+//初始化地图
+void InitShowMap(int thisMap[M][N])
+{
+	int i = 0,j = 0;
+	for(i = 0;i < M;i++)
+	{
+		for(j = 0;j < N;j++)
+		{
+			if(0 == thisMap[i][j])
+				printf("□");
+			else
+				printf("■");
+		}
+		printf("\n");
+	}
+	printf("请按Y(y)继续进化：");
+}
+
+/*根据规则计算新地图*/
 void Calculate(int nowMap[M][N],int lastMap[M][N])
 {
 	int i = 0,j = 0,count = 0;
@@ -75,10 +94,8 @@ void Calculate(int nowMap[M][N],int lastMap[M][N])
 	{
 		for(j = 0;j < N;j++)
 		{
-			//因为活细胞是1，所以直接将自己周围对应的地图数字相加就是活细胞个数
 			count = 0;
-			//列举出几种边界情况，特殊计算，否则计算四周
-			//第一排   最后一排  左边中间  右边中间  正中间
+			//特殊情况（第一排、最后一排、左边中间、右边中间、正中间）特殊计算，否则计算四周
 			if(0 == i)
 			{
 				//在第一排
@@ -111,7 +128,7 @@ void Calculate(int nowMap[M][N],int lastMap[M][N])
 				}
 			}
 			else if(0 == j)
-				//要注意，前面已经计算过的不用再考虑，所以这个时候，考虑的是靠左边中间的
+				//左边中间的情况
 				count = nowMap[i-1][j]+nowMap[i-1][j+1]+nowMap[i][j+1]+nowMap[i+1][j+1]+nowMap[i+1][j];
 			else if(N-1 == j)
 				count = nowMap[i-1][j]+nowMap[i-1][j-1]+nowMap[i][j-1]+nowMap[i+1][j-1]+nowMap[i+1][j];
@@ -128,10 +145,10 @@ void Calculate(int nowMap[M][N],int lastMap[M][N])
 	}
 }
 
+//遍历当前的地图数组,依次计算每个格子的后一个状态，并更新新的地图
 void RenewMap()
 {
-	//遍历当前的地图数组,依次计算每个格子的后一个状态，并更新新的地图
-	if(1 == thisFlag)
+	if(1 == thisFlag)//nowmap
 	{
 		Calculate(Map1,Map2);
 		thisFlag = 2;
@@ -163,4 +180,21 @@ void Run()
 		else
 			Print(Map1,Map2);
 	}	
+}
+
+void Pos(int x, int y)//设置光标位置
+{//要注意这里的x和y与我们数组的x和y是反的
+	COORD pos;
+	HANDLE hOutput;
+	pos.X = x;
+	pos.Y = y;
+	hOutput = GetStdHandle(STD_OUTPUT_HANDLE);//返回标准的输入、输出或错误的设备的句柄，也就是获得输入、输出/错误的屏幕缓冲区的句柄
+	SetConsoleCursorPosition(hOutput, pos);
+}
+
+int main(void)
+{
+	Run();
+	system("pause");
+	return 0;
 }
