@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="90d71506-27fe-4731-b0f9-825bd390bbc9" name="Administrator@WIN-REE0K100IOP 2020-06-07 21:35:53" runUser="WIN-REE0K100IOP\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="本地测试运行" id="a4741bde-5c11-4f8f-b243-baa1125ecc63">
+    <Description>这是本地测试运行的默认测试运行配置。</Description>
+    <Deployment userDeploymentRoot="C:\Users\Administrator\Documents\Visual Studio 2008\Projects\lifegame\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="C:\Users\Administrator\Documents\Visual Studio 2008\Projects\lifegame\TestResults\Administrator_WIN-REE0K100IOP 2020-06-07 21_35_53" />
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2020-06-07T21:35:53.0681797+08:00" queuing="2020-06-07T21:35:53.7152167+08:00" start="2020-06-07T21:35:53.7372179+08:00" finish="2020-06-07T21:35:54.0852378+08:00" />
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\users\administrator\documents\visual studio 2008\projects\lifegame\debug\test1.dll" id="f14cde2d-2f6a-8964-6f77-6f4b9cb115f4">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="dea2567b-08d1-4afe-968d-847c646544ac" />
+      <TestMethod codeBase="C:\Users\Administrator\Documents\Visual Studio 2008\Projects\lifegame\Debug\Test1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test1.UnitTest1, Test1" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f14cde2d-2f6a-8964-6f77-6f4b9cb115f4" executionId="dea2567b-08d1-4afe-968d-847c646544ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="dea2567b-08d1-4afe-968d-847c646544ac" testId="f14cde2d-2f6a-8964-6f77-6f4b9cb115f4" testName="TestMethod1" computerName="WIN-REE0K100IOP" duration="00:00:00.0030814" startTime="2020-06-07T21:35:53.7392180+08:00" endTime="2020-06-07T21:35:54.0802375+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

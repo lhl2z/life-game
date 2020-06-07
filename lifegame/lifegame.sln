@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lifegame", "lifegame\lifegame.vcproj", "{F4B3EC28-379A-4D24-992C-B8933FA8594A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test1", "Test1\Test1.vcproj", "{72FCAF22-5674-4904-8E14-B448713F430D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3FE9A974-9BF9-44A6-BE4E-49743A4A8D52}"
+	ProjectSection(SolutionItems) = preProject
+		lifegame.vsmdi = lifegame.vsmdi
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = lifegame.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4B3EC28-379A-4D24-992C-B8933FA8594A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F4B3EC28-379A-4D24-992C-B8933FA8594A}.Debug|Win32.Build.0 = Debug|Win32
+		{F4B3EC28-379A-4D24-992C-B8933FA8594A}.Release|Win32.ActiveCfg = Release|Win32
+		{F4B3EC28-379A-4D24-992C-B8933FA8594A}.Release|Win32.Build.0 = Release|Win32
+		{72FCAF22-5674-4904-8E14-B448713F430D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{72FCAF22-5674-4904-8E14-B448713F430D}.Debug|Win32.Build.0 = Debug|Win32
+		{72FCAF22-5674-4904-8E14-B448713F430D}.Release|Win32.ActiveCfg = Release|Win32
+		{72FCAF22-5674-4904-8E14-B448713F430D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

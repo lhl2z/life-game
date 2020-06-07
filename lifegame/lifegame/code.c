@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <time.h>
 #include <conio.h>
+#include <UTest.h>
 // 定义地图的大小
 #define M 20
 #define N 20
